@@ -1,0 +1,639 @@
+/* ===== CAMPUS LIFE PLANNER - RESPONSIVE STYLES ===== */
+/* Mobile-first responsive design with multiple breakpoints */
+
+/* ===== MOBILE FIRST (320px - 767px) ===== */
+@media (max-width: 767px) {
+  /* Typography adjustments */
+  :root {
+    --font-size-3xl: 1.5rem;
+    --font-size-4xl: 1.875rem;
+  }
+
+  /* Header adjustments */
+  .header {
+    padding: var(--space-3) var(--space-3);
+  }
+  
+  .nav-container {
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+  }
+
+  /* Hero Section Mobile */
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .phone-mockup {
+    width: 240px;
+    height: 480px;
+  }
+
+
+
+  /* Features Grid Mobile */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .feature-card {
+    padding: var(--space-6);
+  }
+
+  /* Steps Grid Mobile */
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .step-card {
+    padding: var(--space-6);
+  }
+
+  .step-number {
+    width: 60px;
+    height: 60px;
+    font-size: var(--font-size-xl);
+  }
+  
+  /* Container padding */
+  .container {
+    padding: 0 var(--space-3);
+  }
+  
+  .logo h1 {
+    font-size: var(--font-size-lg);
+  }
+  
+  .tagline {
+    display: none;
+  }
+  
+  /* Navigation - Mobile stacked visible */
+  .nav-menu {
+    position: static;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-2) 0;
+    gap: var(--space-2);
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    transition: none;
+    z-index: auto;
+    border-radius: 0;
+    border: none;
+    overflow: visible;
+  }
+  /* Active class retained for compatibility */
+
+  /* Nav links - plain text (no button styling) */
+  .nav-menu .nav-link {
+    display: block;
+    padding: var(--space-1) var(--space-3);
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .nav-menu .nav-link:hover,
+  .nav-menu .nav-link:focus {
+    background: transparent;
+    text-decoration: underline;
+  }
+
+  /* Prefer horizontal layout on medium screens and up */
+  @media (min-width: 640px) {
+    .nav-menu,
+    .nav-menu.active {
+      position: static;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      width: auto;
+      height: auto;
+      transform: none;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-4);
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+      border: none;
+      overflow: visible;
+    }
+
+    .nav-menu .nav-link {
+      margin: 0;
+      border: none;
+      background: transparent;
+    }
+  }
+  
+  .nav-link {
+    font-size: var(--font-size-sm);
+    padding: var(--space-1) var(--space-3);
+    color: var(--white);
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Main content */
+  .main {
+    padding: var(--space-6) 0;
+    padding-top: calc(var(--space-6) + 96px); /* ensure offset under fixed header on mobile */
+  }
+  
+  .section-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-6);
+  }
+  
+  /* Stats grid */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .stat-card {
+    padding: var(--space-4);
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-3);
+  }
+  
+  .stat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: var(--font-size-3xl);
+  }
+  
+  .stat-number {
+    font-size: var(--font-size-xl);
+  }
+  
+  /* Cap section */
+  .cap-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+  
+  .cap-input {
+    width: 100%;
+  }
+  
+  /* Tasks grid */
+  .tasks-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .task-card {
+    padding: var(--space-4);
+  }
+  
+  .task-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+  
+  .task-actions {
+    opacity: 1;
+    justify-content: flex-end;
+  }
+  
+  .task-meta {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  
+  /* Form adjustments */
+  .form-actions {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Controls */
+  .filter-controls {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .search-options {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+  }
+  
+  /* Settings */
+  .settings-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .settings-card {
+    padding: var(--space-4);
+  }
+  
+  /* About section */
+  .about-hero h3 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .contact-links {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .contact-link {
+    justify-content: center;
+  }
+  
+  /* Footer */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-3);
+  }
+  
+  .footer-links {
+    justify-content: center;
+    gap: var(--space-4);
+  }
+  
+  /* Modal */
+  .modal-content {
+    margin: var(--space-4);
+    padding: var(--space-6);
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .modal-actions .btn {
+    width: 100%;
+  }
+
+  /* Hero buttons */
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+/* ===== TABLET (768px - 1023px) ===== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Container adjustments */
+  .container {
+    padding: 0 var(--space-5);
+  }
+  
+  /* Navigation */
+  .nav-container {
+    padding: var(--space-4) var(--space-5);
+    max-width: 90%;
+  }
+  
+  /* Stats grid */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+  
+  /* Tasks grid */
+  .tasks-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+  
+  /* Settings grid */
+  .settings-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+  
+  /* Features grid */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+  
+  /* Form actions */
+  .form-actions {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  .btn {
+    width: auto;
+  }
+  
+  /* Filter controls */
+  .filter-controls {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+/* ===== DESKTOP (1024px and up) ===== */
+@media (min-width: 1024px) {
+  /* Container max-width */
+  .container {
+    max-width: 1200px;
+    padding: 0 var(--space-8);
+  }
+  
+  /* Navigation */
+  .header {
+    padding: var(--space-4) var(--space-8);
+  }
+  
+  .nav-container {
+    padding: var(--space-4) var(--space-8);
+  }
+  
+  /* Stats grid */
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+  
+  /* Tasks grid */
+  .tasks-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+  
+  /* Settings grid */
+  .settings-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+  
+  /* Features grid */
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+  
+  /* Enhanced hover effects */
+  .task-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Better spacing for larger screens */
+  .main {
+    padding: var(--space-12) 0;
+  }
+  
+  .section-title {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-10);
+  }
+}
+
+/* ===== LARGE DESKTOP (1440px and up) ===== */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  /* Tasks grid for very large screens */
+  .tasks-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* Enhanced glass effects for high-DPI displays */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+  
+  /* Better typography scaling */
+  .section-title {
+    font-size: 3rem;
+  }
+  
+  .stat-number {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* ===== LANDSCAPE ORIENTATION ADJUSTMENTS ===== */
+@media (orientation: landscape) and (max-height: 500px) {
+  /* Compact header for landscape mobile */
+
+  .header {
+    position: static;
+  }
+  
+  .nav-container {
+    padding: var(--space-2) var(--space-4);
+  }
+  
+  .logo h1 {
+    font-size: var(--font-size-base);
+  }
+  
+  .tagline {
+    display: none;
+  }
+  
+  .main {
+    padding: var(--space-4) 0;
+    padding-top: 80px; /* ensure content doesn't hide behind fixed header in compact landscape */
+  }
+  
+  .section-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-4);
+  }
+  
+  /* Stack stats horizontally in landscape */
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+  }
+  
+  .stat-card {
+    padding: var(--space-3);
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-size-xl);
+  }
+  
+  .stat-number {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: high) {
+  :root {
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(0, 0, 0, 0.3);
+  }
+  
+  .glass-effect {
+    border-width: 2px;
+  }
+  
+  .task-card {
+    border-width: 2px;
+  }
+  
+  .btn {
+    border-width: 2px;
+  }
+  
+  .form-input,
+  .form-textarea,
+  .select {
+    border-width: 2px;
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .task-card:hover,
+  .stat-card:hover,
+  .glass-effect:hover {
+    transform: none;
+  }
+  
+  .modal-content {
+    animation: none;
+  }
+  
+  .section.active {
+    animation: none;
+  }
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+@media (prefers-color-scheme: dark) {
+  /* Dark mode is already default for hero section */
+  /* Keep app sections white for readability */
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  
+  .header,
+  .footer,
+  .nav-toggle,
+  .btn,
+  .task-actions,
+  .controls {
+    display: none !important;
+  }
+  
+  .main {
+    padding: 0;
+  }
+  
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+  
+  .glass-effect {
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    margin-bottom: var(--space-4);
+  }
+  
+  .task-card {
+    break-inside: avoid;
+    margin-bottom: var(--space-4);
+    border: 1px solid #ccc;
+  }
+  
+  .stats-grid,
+  .tasks-grid,
+  .features-grid {
+    display: block;
+  }
+  
+  .stat-card,
+  .task-card,
+  .feature-card {
+    margin-bottom: var(--space-4);
+  }
+  
+  .section-title {
+    color: black;
+    text-shadow: none;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}

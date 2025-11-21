@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orderly • Preferences</title>
+    <meta name="description" content="Orderly preferences and settings">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="styles/main.css" as="style">
+    <link rel="modulepreload" href="scripts/main.js">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <style>
+      /* Force dark background like dashboard - using direct color values */
+      body {
+        background: linear-gradient(135deg, #1a1d2e 0%, #0f1117 100%) !important;
+        background-attachment: fixed !important;
+        min-height: 100vh !important;
+        color: #ffffff !important;
+      }
+      
+      .main {
+        background: transparent !important;
+        min-height: 100vh !important;
+      }
+      
+      .container {
+        color: #ffffff !important;
+      }
+
+      /* Override the white background from main.css for settings page */
+      .section {
+        background: linear-gradient(135deg, #1a1d2e 0%, #0f1117 100%) !important;
+        background-attachment: fixed !important;
+        min-height: 100vh !important;
+        color: #ffffff !important;
+      }
+
+      /* Settings page contrast improvements */
+      .settings-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      .settings-card {
+        background: rgba(255,255,255,0.18) !important;
+        border: 1px solid rgba(255,255,255,0.25) !important;
+        padding: 2rem !important;
+        border-radius: 1rem !important;
+      }
+      
+      .settings-card h3 {
+        color: #ffffff !important;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid rgba(255,255,255,0.2);
+      }
+      
+      .settings-group {
+        margin-bottom: 1.5rem;
+      }
+      
+      .settings-group:last-child {
+        margin-bottom: 0;
+      }
+      
+      .settings-label {
+        color: rgba(255,255,255,0.95) !important;
+        font-weight: 500;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      
+      .settings-description {
+        color: rgba(255,255,255,0.75) !important;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
+      
+      /* Form controls on settings page - high contrast */
+      .select,
+      .file-input {
+        background: rgba(255,255,255,0.95) !important;
+        color: #111827 !important;
+        border: 1px solid rgba(255,255,255,0.3) !important;
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+      }
+      
+      .select option {
+        background: #ffffff;
+        color: #111827;
+      }
+      
+      /* Checkbox labels on settings */
+      .checkbox-label {
+        color: rgba(255,255,255,0.95) !important;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .checkbox {
+        width: 18px;
+        height: 18px;
+      }
+      
+      /* Button text visibility */
+      .btn {
+        font-weight: 600;
+      }
+      
+      /* Section title */
+      .section-title {
+        color: #ffffff !important;
+        text-shadow: 0 4px 18px rgba(0,0,0,0.6);
+        margin-bottom: 1.5rem;
+      }
+      
+      /* Welcome message styling */
+      .welcome-message {
+        background: rgba(255,255,255,0.14) !important;
+        border: 1px solid rgba(255,255,255,0.18) !important;
+        box-shadow: 0 12px 36px rgba(0,0,0,0.45) !important;
+      }
+      
+      /* Ensure glass effect cards are visible */
+      .glass-effect {
+        background: rgba(255,255,255,0.14) !important;
+        border: 1px solid rgba(255,255,255,0.18) !important;
+        box-shadow: 0 12px 36px rgba(0,0,0,0.45) !important;
+        backdrop-filter: blur(10px) !important;
+      }
+      
+      /* Hide the tagline on preferences page */
+      .tagline {
+        display: none !important;
+      }
+    </style>
+</head>
+<body>
+  <header class="header" role="banner">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-container">
+        <div class="logo">
+          <h1>
+            <span class="logo-text">ORDERLY</span>
+          </h1>
+        </div>
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" role="menubar">
+          <li role="none"><a href="index.html#hero" role="menuitem" class="nav-link">Home</a></li>
+          <li role="none"><a href="dashboard.html#about" role="menuitem" class="nav-link">About</a></li>
+          <li role="none"><a href="tasks.html#tasks" role="menuitem" class="nav-link">Tasks</a></li>
+          <li role="none"><a href="dashboard.html#dashboard" role="menuitem" class="nav-link">Dashboard</a></li>
+          <li role="none"><a href="settings.html" role="menuitem" class="nav-link">Settings</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" class="main" role="main">
+    <section class="section" style="display:block;padding-top:120px;">
+      <div class="container">
+        <h1 class="hero-title" style="font-size: clamp(2rem, 6vw, 3.5rem);font-weight:800;line-height:1.1;margin-bottom:3rem;text-align:center;">
+          <span class="hero-title-main" style="background:linear-gradient(135deg, #f97316, #ea580c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:#ffffff;">Welcome to Orderly</span>
+          <span class="hero-title-sub" style="color:#ffffff;margin-top:0.5rem;">please select your preferences for a superb experience with us!</span>
+        </h1>
+        <div class="settings-grid">
+          <div class="settings-card glass-effect">
+            <h3>Units & Display</h3>
+            <div class="settings-group">
+              <label for="time-unit" class="settings-label">Default Time Unit</label>
+              <select id="time-unit" class="select">
+                <option value="hours">Hours</option>
+                <option value="minutes">Minutes</option>
+              </select>
+              <p class="settings-description">Choose how duration is displayed</p>
+            </div>
+            <div class="settings-group">
+              <label for="date-format" class="settings-label">Date Format</label>
+              <select id="date-format" class="select">
+                <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+              </select>
+              <p class="settings-description" id="date-format-example">Example: 2025-10-18</p>
+            </div>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="tasks.html" class="btn btn-primary btn-large">Proceed</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 Orderly. Built with love for students everywhere.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="confirm-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content glass-effect">
+      <h3 id="modal-title">Confirm Action</h3>
+      <p id="modal-message">Are you sure you want to proceed?</p>
+      <div class="modal-actions">
+        <button id="modal-confirm" class="btn btn-primary">Confirm</button>
+        <button id="modal-cancel" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
