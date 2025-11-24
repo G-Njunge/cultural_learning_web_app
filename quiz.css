@@ -1,0 +1,176 @@
+/* quiz.css — warm African-themed styles for the picture quiz
+   Uses site CSS variables from `style.css` (loaded first) like
+   --color-primary, --color-secondary, --color-accent, --color-surface.
+*/
+:root {
+  --quiz-bg-1: linear-gradient(120deg, color-mix(in srgb, var(--color-primary) 8%, transparent), color-mix(in srgb, var(--color-secondary) 6%, transparent));
+}
+
+body {
+  font-family: var(--font-family-body);
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.quiz-header {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-on-primary);
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow-level-1);
+}
+.quiz-header-inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.quiz-logo {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-on-primary);
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+.quiz-nav-link {
+  color: var(--color-on-primary);
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+}
+
+.quiz-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+}
+
+.quiz-card {
+  width: min(980px, 96%);
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.quiz-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-image {
+  width: 100%;
+  max-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--border-radius-xl);
+  background: var(--color-surface-elevated);
+  box-shadow: var(--shadow-level-2);
+  padding: 1rem;
+}
+
+.quiz-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+}
+
+/* Confetti pieces container (absolute inside .quiz-image) */
+.quiz-image{position:relative}
+.confetti-container{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:inherit}
+.confetti-piece{position:absolute;opacity:0.95;width:10px;height:14px;border-radius:2px;transform-origin:center;will-change:transform,opacity}
+@keyframes confetti-fall{
+  0%{transform:translateY(-10vh) rotate(0deg) scale(1);opacity:1}
+  70%{opacity:1}
+  100%{transform:translateY(120%) rotate(360deg) scale(0.9);opacity:0}
+}
+
+.quiz-body {
+  padding: 1rem 0.5rem;
+}
+
+.quiz-question {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.quiz-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.choice-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1rem;
+  font-size: 1.05rem;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  min-height: 56px;
+  box-shadow: var(--shadow-level-1);
+  color: var(--color-on-surface);
+  font-weight: var(--font-weight-medium);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+/* Use the theme colors for the four buttons to make them bright */
+#choice1 { background: var(--color-primary); }
+#choice2 { background: var(--color-secondary); }
+#choice3 { background: var(--color-accent); }
+#choice4 { background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); }
+
+.choice-btn:hover:not(:disabled) { transform: translateY(-3px); box-shadow: var(--shadow-level-3); }
+.choice-btn:focus-visible { outline: 3px solid color-mix(in oklab, var(--color-primary) 60%, white); }
+.choice-btn[aria-pressed="true"] { box-shadow: 0 8px 20px rgba(0,0,0,0.18); transform: translateY(-2px) scale(1.01); }
+
+.quiz-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.quiz-feedback {
+  margin-top: 0.75rem;
+  min-height: 1.25rem;
+  color: color-mix(in srgb, var(--color-on-surface) 88%, black 12%);
+}
+
+.btn-outline {
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  background: transparent;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+  .quiz-card { grid-template-columns: 1fr; }
+  .quiz-choices { grid-template-columns: 1fr; }
+}
+
+/* subtle decorative motif in the corner */
+.quiz-card::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  right: 10px;
+  top: 10px;
+  opacity: 0.06;
+  background-image: radial-gradient(circle at 30% 30%, var(--color-primary) 0 10px, transparent 12px);
+  border-radius: 50%;
+}

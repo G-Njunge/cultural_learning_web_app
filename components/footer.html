@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Prickly Woozy Snail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: "Nunito Sans";
+        font-size: 1rem;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: undefined;
+        text-transform: undefined;
+        letter-spacing: normal;
+        line-height: 1.55;
+        color: var(--color-on-surface);
+        background: var(--color-surface);
+
+        fill: var(--color-on-surface);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="../style.css" />
+    <div>
+      <link href="./footer.css" rel="stylesheet" />
+      <div class="footer-container1">
+        <div class="footer-container2">
+          <div class="footer-container3">
+            <style>
+              @media (prefers-reduced-motion: reduce) {
+              .footer-brand-card, .footer-link, .footer-social-link, .footer-legal-link {
+                transition: none;
+              }
+              .footer-pattern-accent, .footer-shape, .footer-heart-icon {
+                animation: none;
+              }
+              .footer-link:hover {
+                transform: none;
+              }
+              .footer-social-link:hover {
+                transform: none;
+              }
+              }
+            </style>
+          </div>
+        </div>
+        <footer id="footer-main" class="footer">
+          <div class="footer-decorative-wave"></div>
+          <div class="footer-container">
+            <div class="footer-content">
+              <div class="footer-brand-section">
+                <div class="footer-brand-card">
+                  <div class="footer-logo-wrapper">
+                    <h3 class="footer-brand-name">CultureQuest Kids</h3>
+                    <div class="footer-pattern-accent"></div>
+                  </div>
+                  <p class="footer-tagline">
+                    Exploring African culture through playful learning
+                    adventures!
+                  </p>
+                  <div class="footer-decorative-shapes">
+                    <span class="footer-shape-1 footer-shape"></span>
+                    <span class="footer-shape-2 footer-shape"></span>
+                    <span class="footer-shape footer-shape-3"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="footer-links-section">
+                <div class="footer-link-column">
+                  <h4 class="footer-column-title">Explore</h4>
+                  <ul class="footer-link-list">
+                    <li class="footer-link-item">
+                      <a href="index.html">
+                        <div class="footer-link">
+                          <span class="footer-link-icon">
+                            <svg
+                              width="24"
+                              xmlns="http://www.w3.org/2000/svg"
+                              height="24"
+                              viewBox="0 0 24 24"
+                            >
+                              <g
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path
+                                  d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
+                                ></path>
+                                <path
+                                  d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                                ></path>
+                              </g>
+                            </svg>
+                          </span>
+                          <span class="footer-link-text">Home</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="footer-link-item">
+                      <a href="index.html">
+                        <div class="footer-link">
+                          <span class="footer-link-dot"></span>
+                          <span class="footer-link-text">Learning Games</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="footer-link-item">
+                      <a href="index.html">
+                        <div class="footer-link">
+                          <span class="footer-link-dot"></span>
+                          <span class="footer-link-text">Culture Quizzes</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="footer-link-item">
+                      <a href="index.html">
+                        <div class="footer-link">
+                          <span class="footer-link-dot"></span>
+                          <span class="footer-link-text">
+                            Stories &amp; Songs
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="footer-link-column">
+                  <h4 class="footer-column-title">For Parents</h4>
+                  <ul class="footer-link-list">
+                    <li class="footer-link-item">
+                      <a href="index.html">
+                        <div class="footer-link">
+                          <span class="footer-link-dot"></span>
+                          <span class="footer-link-text">About Us</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="footer-link-item">
+                      <a href="index.html">
+                        <div class="footer-link">
+                          <span class="footer-link-dot"></span>
+                          <span class="footer-link-text">
+                            Safety &amp; Privacy
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="footer-link-item">
+                      <a href="index.html">
+                        <div class="footer-link">
+                          <span class="footer-link-dot"></span>
+                          <span class="footer-link-text">Learning Guide</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="footer-link-item">
+                      <a href="index.html">
+                        <div class="footer-link">
+                          <span class="footer-link-dot"></span>
+                          <span class="footer-link-text">Contact Support</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="footer-link-column">
+                  <h4 class="footer-column-title">Get in Touch</h4>
+                  <ul class="footer-contact-list">
+                    <li class="footer-contact-item">
+                      <div class="footer-contact-icon">
+                        <svg
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="24"
+                          viewBox="0 0 24 24"
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path
+                              d="m22 7l-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
+                            ></path>
+                            <rect
+                              x="2"
+                              y="4"
+                              rx="2"
+                              width="20"
+                              height="16"
+                            ></rect>
+                          </g>
+                        </svg>
+                      </div>
+                      <span class="footer-contact-text">
+                        hello@culturequestkids.com
+                      </span>
+                    </li>
+                    <li class="footer-contact-item">
+                      <div class="footer-contact-icon">
+                        <svg
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="24"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233a14 14 0 0 0 6.392 6.384"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span class="footer-contact-text">1-800-CULTURE</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-social-section">
+              <h4 class="footer-social-title">Join Our Adventure!</h4>
+              <div class="footer-social-links">
+                <a href="#">
+                  <div
+                    aria-label="Follow us on Facebook"
+                    class="footer-social-facebook footer-social-link"
+                  >
+                    <svg
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </div>
+                </a>
+                <a href="#">
+                  <div
+                    aria-label="Follow us on Twitter"
+                    class="footer-social-twitter footer-social-link"
+                  >
+                    <svg
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6c2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4c-.9-4.2 4-6.6 7-3.8c1.1 0 3-1.2 3-1.2"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </div>
+                </a>
+                <a href="#">
+                  <div
+                    aria-label="Follow us on Instagram"
+                    class="footer-social-instagram footer-social-link"
+                  >
+                    <svg
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <rect
+                          x="2"
+                          y="2"
+                          rx="5"
+                          ry="5"
+                          width="20"
+                          height="20"
+                        ></rect>
+                        <path
+                          d="M16 11.37A4 4 0 1 1 12.63 8A4 4 0 0 1 16 11.37m1.5-4.87h.01"
+                        ></path>
+                      </g>
+                    </svg>
+                  </div>
+                </a>
+                <a href="#">
+                  <div
+                    aria-label="Follow us on YouTube"
+                    class="footer-social-youtube footer-social-link"
+                  >
+                    <svg
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M2.5 17a24.1 24.1 0 0 1 0-10a2 2 0 0 1 1.4-1.4a49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.1 24.1 0 0 1 0 10a2 2 0 0 1-1.4 1.4a49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                        ></path>
+                        <path d="m10 15l5-3l-5-3z"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <div class="footer-bottom-content">
+                <p class="footer-copyright">
+                  <span class="footer-footer-copyright-text1">
+                    © 2025 CultureQuest Kids. Made with
+                  </span>
+                  <span class="footer-footer-heart-icon">
+                    <svg
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676a.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span class="footer-footer-copyright-text2">
+                    for curious young minds
+                  </span>
+                </p>
+                <div class="footer-legal-links">
+                  <a href="index.html">
+                    <div class="footer-legal-link">
+                      <span>Privacy Policy</span>
+                    </div>
+                  </a>
+                  <span class="footer-legal-separator">•</span>
+                  <a href="index.html">
+                    <div class="footer-legal-link">
+                      <span>Terms of Use</span>
+                    </div>
+                  </a>
+                  <span class="footer-legal-separator">•</span>
+                  <a href="index.html">
+                    <div class="footer-legal-link">
+                      <span>Cookie Policy</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="footer-pattern-bg"></div>
+          </div>
+        </footer>
+        <div class="footer-container4">
+          <div class="footer-container5">
+            <style>
+                      @keyframes footer-pulse {0%,100% {opacity: 1;
+              transform: scaleX(1);}
+              50% {opacity: 0.6;
+              transform: scaleX(1.1);}}@keyframes footer-float {0%,100% {transform: translateY(0) rotate(0deg);}
+              50% {transform: translateY(-15px) rotate(180deg);}}@keyframes footer-heartbeat {0%,100% {transform: scale(1);}
+              10%,30% {transform: scale(1.2);}
+              20%,40% {transform: scale(1);}}
+            </style>
+          </div>
+        </div>
+        <div class="footer-container6">
+          <div class="footer-container7">
+            <script defer="" data-name="footer">
+              document.addEventListener('DOMContentLoaded', function() {
+                (function(){
+                  // Playful interaction for footer links
+                  const footerLinks = document.querySelectorAll(".footer-link")
+
+                  footerLinks.forEach((link) => {
+                    link.addEventListener("mouseenter", function () {
+                      const dot = this.querySelector(".footer-link-dot")
+                      if (dot) {
+                        dot.style.animation = "footer-bounce 0.5s ease"
+                      }
+                    })
+
+                    link.addEventListener("mouseleave", function () {
+                      const dot = this.querySelector(".footer-link-dot")
+                      if (dot) {
+                        dot.style.animation = "none"
+                      }
+                    })
+                  })
+
+                  // Add bounce animation
+                  const style = document.createElement("style")
+                  style.textContent = `
+                  @keyframes footer-bounce {
+                    0%, 100% { transform: scale(1); }
+                    25% { transform: scale(1.3) translateY(-3px); }
+                    50% { transform: scale(1.1) translateY(0); }
+                    75% { transform: scale(1.2) translateY(-2px); }
+                  }
+                `
+                  document.head.appendChild(style)
+
+                  // Social links playful interaction
+                  const socialLinks = document.querySelectorAll(".footer-social-link")
+
+                  socialLinks.forEach((link) => {
+                    link.addEventListener("click", function (e) {
+                      // Add bounce effect on click
+                      this.style.animation = "footer-social-click 0.4s ease"
+                      setTimeout(() => {
+                        this.style.animation = ""
+                      }, 400)
+                    })
+                  })
+
+                  // Add social click animation
+                  const socialStyle = document.createElement("style")
+                  socialStyle.textContent = `
+                  @keyframes footer-social-click {
+                    0% { transform: scale(1) rotate(0deg); }
+                    50% { transform: scale(0.9) rotate(5deg); }
+                    100% { transform: scale(1) rotate(0deg); }
+                  }
+                `
+                  document.head.appendChild(socialStyle)
+
+                  // Floating shapes animation enhancement
+                  const shapes = document.querySelectorAll(".footer-shape")
+                  shapes.forEach((shape, index) => {
+                    setInterval(() => {
+                      const randomDelay = Math.random() * 2000
+                      setTimeout(() => {
+                        shape.style.animation = "none"
+                        setTimeout(() => {
+                          shape.style.animation = `footer-float 3s ease-in-out infinite ${
+                            index * 0.5
+                          }s`
+                        }, 10)
+                      }, randomDelay)
+                    }, 6000)
+                  })
+                })()
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

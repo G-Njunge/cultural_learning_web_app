@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CultureQuest Kids — Picture Quiz</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./quiz.css" />
+    <script src="./quiz.js" defer></script>
+  </head>
+  <body>
+    <header class="quiz-header">
+      <div class="quiz-header-inner">
+        <a class="quiz-logo" href="index.html">CultureQuest Kids</a>
+        <nav aria-label="Main navigation">
+          <a href="index.html" id="nav-home" class="quiz-nav-link">Home</a>
+          <a href="quiz.html" aria-current="page" id="nav-quiz" class="quiz-nav-link">Quiz</a>
+          <a href="about.html" id="nav-about" class="quiz-nav-link">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="quiz-main">
+      <section class="quiz-card" aria-labelledby="quiz-title">
+        <div class="quiz-visual">
+          <div class="quiz-image" id="quiz-image" aria-live="polite">
+            <img id="quiz-img" src="./images/placeholder-quiz.jpg" alt="Quiz image" />
+          </div>
+        </div>
+
+        <div class="quiz-body">
+          <h2 id="quiz-title" class="quiz-question">Who or what is this?</h2>
+
+          <div class="quiz-choices" role="list" aria-label="Answer choices">
+            <button id="choice1" class="choice-btn" role="listitem">Choice 1</button>
+            <button id="choice2" class="choice-btn" role="listitem">Choice 2</button>
+            <button id="choice3" class="choice-btn" role="listitem">Choice 3</button>
+            <button id="choice4" class="choice-btn" role="listitem">Choice 4</button>
+          </div>
+
+          <div class="quiz-controls">
+            <button id="btn-next" class="btn btn-primary">Next</button>
+            <button id="btn-try-again" class="btn btn-secondary">Try Again</button>
+            <a id="btn-home" class="btn btn-outline" href="index.html">Back to Home</a>
+          </div>
+
+          <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="quiz-footer" role="contentinfo">
+      <div class="quiz-footer-inner">© 2025 CultureQuest Kids</div>
+    </footer>
+  </body>
+</html>

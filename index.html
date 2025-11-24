@@ -1,168 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orderly • Home</title>
-    <meta name="description" content="Organize your academic tasks, events, and deadlines with our intuitive campus life planner">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="preload" href="styles/main.css" as="style">
-    <link rel="modulepreload" href="scripts/main.js">
-    
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/components.css">
-    <link rel="stylesheet" href="styles/responsive.css">
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-</head>
-<body>
+  <head>
+    <title>Prickly Woozy Snail</title>
+    <meta property="og:title" content="Prickly Woozy Snail" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <script src="./js/register-sw.js" defer></script>
+    <script src="./js/quiz.js" defer></script>
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: "Nunito Sans";
+        font-size: 1rem;
+      }
 
-    <header class="header" role="banner">
-        <nav class="nav" role="navigation" aria-label="Main navigation">
-            <div class="nav-container">
-                <div class="logo">
-                    <div>
-                        <h1 id="logo-text">Orderly</h1>
-                        <span class="tagline"></span>
-                    </div>
-                </div>
-                <ul class="nav-menu" role="menubar">
-                    <li role="none"><a href="index.html#hero" role="menuitem" class="nav-link">Home</a></li>
-                    <li role="none"><a href="dashboard.html#about" role="menuitem" class="nav-link">About</a></li>
-                    <li role="none"><a href="tasks.html#tasks" role="menuitem" class="nav-link">Tasks</a></li>
-                    <li role="none"><a href="dashboard.html#dashboard" role="menuitem" class="nav-link">Dashboard</a></li>
-                    <li role="none"><a href="settings.html" role="menuitem" class="nav-link">Settings</a></li>
-                </ul>
-            </div>
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: undefined;
+        text-transform: undefined;
+        letter-spacing: normal;
+        line-height: 1.55;
+        color: var(--color-on-surface);
+        background: var(--color-surface);
+
+        fill: var(--color-on-surface);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="./index.css" rel="stylesheet" />
+
+    <style id="inline-quiz-nav">
+      /* Inline nav styles (keeps the app color scheme) */
+      .quiz-header{background:linear-gradient(90deg,#7c3aed,#f59e0b);color:#ffffff;padding:.75rem 1rem;box-shadow:0 8px 24px rgba(124,58,237,0.12)}
+      .quiz-header-inner{max-width:72rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+      .quiz-logo{font-family:Baloo 2, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;font-weight:700;color:#fff;text-decoration:none;font-size:1.125rem}
+      .quiz-nav-link{color:#fff;margin-left:1rem;text-decoration:none;font-weight:600}
+      @media(max-width:640px){.quiz-header-inner{padding:0 .5rem}.quiz-nav-link{margin-left:.6rem}}
+    </style>
+
+    <header class="quiz-header">
+      <div class="quiz-header-inner">
+        <a class="quiz-logo" href="index.html">CultureQuest Kids</a>
+        <nav aria-label="Main navigation">
+          <a href="index.html" id="nav-home" class="quiz-nav-link">Home</a>
+          <a href="quiz.html" id="nav-quiz" class="quiz-nav-link">Quiz</a>
+          <a href="about.html" id="about" class="quiz-nav-link">About</a>
         </nav>
+      </div>
     </header>
 
-    <!-- Main Content -->
-    <main id="main-content" class="main" role="main">
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 class="hero-title">
-                            <span class="hero-title-main">Say Good Bye To Chaos</span>
-                            <span class="hero-title-sub">Say Hello to Productivity</span>
-                            <span class="hero-title-sub">with Orderly</span>
-
-                        </h1>
-                        
-                        </p>
-                        <div class="hero-buttons">
-                            <a href="settings.html" class="btn btn-primary btn-large">
-                                Join us!
-                            </a>
-                        </div>
-                    </div>
-                    <div class="hero-visual">
-                    </div>
+    <main>
+          <section id="hero-section" role="region" aria-labelledby="hero-title">
+            <div class="hero-grid">
+              <div class="hero-content">
+                <h1 id="hero-title" class="hero-title home-hero-title">
+                  CultureQuest Kids
+                </h1>
+                <p class="hero-tagline">
+                  Playful journeys into African stories, songs, and traditions for curious 3-7 year olds.
+                </p>
+                <a
+                  aria-label="Start quick quiz"
+                  href="quiz.html"
+                  class="hero-cta btn-lg btn btn-primary"
+                >
+                  <span class="home-btn-icon">
+                    <svg
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span>Start the Quest</span>
+                </a>
+                <p class="hero-microcopy">
+                  Try a 5-question quiz, and watch your culture
+                  map grow. Simple, joyful learning that prepares little
+                  learners for school and sparks big curiosity.
+                </p>
+              </div>
+              <div class="hero-visual">
+                <div class="hero-visual-card">
+                  <img
+                    alt="Young children enjoying a fun and educational paper craft activity indoors"
+                    src="./images/pexels-jairo-david-arboleda-621072-1425883.jpg" width= "10 em"
                 </div>
-            </div>
-        </section>
+              </div>
 
-        <!-- Features Section -->
-        <section id="features" class="section">
-            <div class="container">
-                <h2 class="section-title">Why Students Choose Campus Life Planner</h2>
-                <div class="features-grid">
-                    <div class="feature-card glass-effect">
-                        <div class="feature-icon">📚</div>
-                        <h3>Smart Task Management</h3>
-                        <p>Organize assignments, projects, and deadlines with intelligent categorization and priority tracking.</p>
-                    </div>
-                    <div class="feature-card glass-effect">
-                        <div class="feature-icon">⏰</div>
-                        <h3>Time Optimization</h3>
-                        <p>Track study time, set realistic goals, and optimize your schedule for maximum productivity.</p>
-                    </div>
-                    <div class="feature-card glass-effect">
-                        <div class="feature-icon">🎯</div>
-                        <h3>Progress Tracking</h3>
-                        <p>Monitor your academic journey with detailed analytics and achievement milestones.</p>
-                    </div>
-                    <div class="feature-card glass-effect">
-                        <div class="feature-icon">🔍</div>
-                        <h3>Advanced Search</h3>
-                        <p>Find tasks instantly with powerful search capabilities and smart filtering options.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How It Works Section -->
-        <section id="how-it-works" class="section">
-            <div class="container">
-                <h2 class="section-title">How It Works</h2>
-                <div class="steps-grid">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3>Add Your Tasks</h3>
-                        <p>Quickly add assignments, projects, and deadlines with due dates and duration estimates.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3>Track Progress</h3>
-                        <p>Monitor your productivity with real-time statistics and visual progress indicators.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h3>Achieve Goals</h3>
-                        <p>Set weekly targets and celebrate milestones as you work toward academic success.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- App sections moved to dashboard.html -->
-        <!-- Removed embedded app/dashboard from homepage -->
-        <!-- START REMOVED CONTENT PLACEHOLDER -->
-        <!-- END REMOVED CONTENT PLACEHOLDER -->
-                
-                
-                
-                
-            </div>
-        </section>
-
-        <!-- Tasks section moved to dashboard.html -->
-
-        <!-- Add Task section moved to dashboard.html -->
-
-        <!-- Settings section moved to dashboard.html -->
-
-        <!-- About section moved to dashboard.html -->
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Orderly. Built with love for students everywhere.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Confirmation Modal -->
-    <div id="confirm-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
-        <div class="modal-backdrop"></div>
-        <div class="modal-content glass-effect">
-            <h3 id="modal-title">Confirm Action</h3>
-            <p id="modal-message">Are you sure you want to proceed?</p>
-            <div class="modal-actions">
-                <button id="modal-confirm" class="btn btn-primary">Confirm</button>
-                <button id="modal-cancel" class="btn btn-secondary">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script type="module" src="scripts/main.js"></script>
-</body>
+  </body>
+  
 </html>

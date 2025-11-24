@@ -1,0 +1,11 @@
+[
+  {"id": "q1", "image": "https://images.pexels.com/photos/750539/pexels-photo-750539.jpeg", "label": "zebra"},
+  {"id": "q2", "image": "https://images.pexels.com/photos/32265190/pexels-photo-32265190.jpeg", "label": "baobab tree"},
+  {"id": "q3", "image": "./images/chapati.jpg", "label": "chapati"},
+  {"id": "q4", "image": "./images/hut.jpg", "label": "hut"},
+  {"id": "q5", "image": "./images/ugali.jpg", "label": "ugali"}
+
+]
+
+
+

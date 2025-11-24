@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — CultureQuest Kids</title>
+    <style id="inline-quiz-nav">
+      /* Inline nav styles (keeps the app color scheme) */
+      .quiz-header{background:linear-gradient(90deg,#7c3aed,#f59e0b);color:#ffffff;padding:.75rem 1rem;box-shadow:0 8px 24px rgba(124,58,237,0.12)}
+      .quiz-header-inner{max-width:72rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+      .quiz-logo{font-family:Baloo 2, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;font-weight:700;color:#fff;text-decoration:none;font-size:1.125rem}
+      .quiz-nav-link{color:#fff;margin-left:1rem;text-decoration:none;font-weight:600}
+      @media(max-width:640px){.quiz-header-inner{padding:0 .5rem}.quiz-nav-link{margin-left:.6rem}}
+    </style>
+    <style id="about-enhancements">
+      .about-hero-title{font-family:var(--font-family-heading);font-size:clamp(1.6rem,4vw,2.8rem);margin:0 0 var(--spacing-md);letter-spacing:var(--letter-spacing-friendly);color:var(--color-on-surface)}
+      .about-brand{display:inline-block;padding:.2rem .6rem;border-radius:14px;color:var(--color-on-primary);background:linear-gradient(90deg,var(--color-primary),var(--color-secondary));box-shadow:0 10px 30px rgba(124,58,237,0.14);}
+
+      .about-hero{display:grid;grid-template-columns:1fr 320px;gap:var(--spacing-lg);align-items:center;margin-bottom:var(--spacing-3xl)}
+      .about-hero-visual{height:220px;border-radius:var(--border-radius-xl);background:linear-gradient(135deg,var(--color-primary),var(--color-accent));display:flex;align-items:center;justify-content:center;color:var(--color-on-primary);font-size:3rem;box-shadow:var(--shadow-level-2)}
+
+      .about-card{padding:var(--spacing-lg);border-radius:var(--border-radius-xl);background:linear-gradient(180deg,color-mix(in oklab,var(--color-surface) 92%,var(--color-primary) 8%),var(--color-surface));box-shadow:var(--shadow-level-2);border:4px solid transparent;border-image:linear-gradient(90deg,var(--color-primary),var(--color-accent),var(--color-secondary)) 1}
+
+      .about-cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:var(--spacing-md);text-decoration:none}
+      .btn-play{background:linear-gradient(90deg,var(--color-primary),var(--color-secondary));color:var(--color-on-primary);padding:.6rem 1rem;border-radius:999px;border:none;box-shadow:var(--shadow-level-3);font-weight:700}
+
+      .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--spacing-md);margin-top:var(--spacing-lg)}
+      .feature-card{padding:var(--spacing-md);border-radius:12px;background:var(--color-surface);box-shadow:0 8px 20px rgba(11,16,32,0.06);display:flex;gap:.75rem;align-items:flex-start}
+      .feature-emoji{font-size:1.6rem;line-height:1;width:44px;height:44px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center}
+      .feature-title{font-weight:700;color:var(--color-on-surface)}
+      .feature-desc{color:var(--color-on-surface-secondary);margin:0;font-size:0.95rem}
+
+      @media(max-width:800px){.about-hero{grid-template-columns:1fr;}.about-hero-visual{height:160px}}
+    </style>
+
+    <header class="quiz-header">
+      <div class="quiz-header-inner">
+        <a class="quiz-logo" href="index.html">CultureQuest Kids</a>
+        <nav aria-label="Main navigation">
+          <a href="index.html" id="nav-home" class="quiz-nav-link">Home</a>
+          <a href="quiz.html" id="nav-quiz" class="quiz-nav-link">Quiz</a>
+          <a href="about.html" id="about" class="quiz-nav-link">About</a>
+        </nav>
+      </div>
+    </header>
+
+</head>
+<body>
+    <main class="thq-section-padding" role="main">
+      <div class="thq-section-max-width">
+        <section class="about-hero">
+          <div>
+            <h1 class="about-hero-title">Discover, Play, and Celebrate — <span class="about-brand">CultureQuest Kids</span></h1>
+            <p class="section-subtitle">Bright photos. Friendly questions. Big smiles — learning that feels like play.</p>
+
+            <div class="about-card">
+              <p class="section-content" style="font-weight:700; color:var(--color-on-surface);font-size:1.05rem;">Dive into short, joyful rounds built for curious kids — each challenge shows a bold photo and four big choices. Tap an answer, get friendly feedback, and keep discovering.</p>
+
+              <a class="about-cta" href="quiz.html"><button class="btn-play">▶ Play the Quiz</button><span style="color:var(--color-on-surface-secondary);font-weight:600">Start a quick 5-question round</span></a>
+
+              <div class="features-grid">
+                <div class="feature-card"><div class="feature-emoji" style="background:linear-gradient(90deg,var(--color-primary),var(--color-accent));color:var(--color-on-primary)">🎯</div><div><div class="feature-title">Short rounds</div><p class="feature-desc">Quick sessions that keep kids focused and proud of progress.</p></div></div>
+                <div class="feature-card"><div class="feature-emoji" style="background:linear-gradient(90deg,var(--color-secondary),var(--color-accent));color:var(--color-on-primary)">📸</div><div><div class="feature-title">Bold photos</div><p class="feature-desc">Bright, friendly images chosen to spark questions and conversation.</p></div></div>
+                <div class="feature-card"><div class="feature-emoji" style="background:linear-gradient(90deg,var(--color-accent),var(--color-primary));color:var(--color-on-primary)">💬</div><div><div class="feature-title">Kind feedback</div><p class="feature-desc">Encouraging messages celebrate right answers and guide mistakes.</p></div></div>
+                <div class="feature-card"><div class="feature-emoji" style="background:linear-gradient(90deg,var(--color-primary),var(--color-secondary));color:var(--color-on-primary)">🖐️</div><div><div class="feature-title">Simple UI</div><p class="feature-desc">Large buttons and clear choices make playing easy for small hands.</p></div></div>
+              </div>
+
+              <p class="section-content" style="margin-top:var(--spacing-md);">Want to contribute photos or names? Open the `api/questions.json` file and drop your suggestions — this project is a playful learning sandbox.</p>
+            </div>
+          </div>
+
+          <div class="about-hero-visual" aria-hidden="true">🌍</div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-container">
+        <p class="footer-copyright">© 2025 CultureQuest Kids</p>
+      </div>
+    </footer>
+</body>
+</html>
