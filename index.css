@@ -188,3 +188,26 @@
   font-weight: 500;
   line-height: 24px;
 }
+
+/* Footer styling for home page */
+.quiz-footer {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-on-primary);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-level-1);
+  margin-top: auto;
+}
+
+.quiz-footer-inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-medium);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
