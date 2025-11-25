@@ -96,6 +96,38 @@
   --dl-layout-space-oneandhalfunits: 24px;
 }
  
+/* Subtle site background: light blue at low opacity for a gentle wash */
+html, body {
+  height: 100%;
+}
+body {
+  background-color: rgba(173, 216, 230, 0.06); /* lightblue at 6% opacity */
+  background-image: linear-gradient(to bottom, rgba(173,216,230,0.02), rgba(173,216,230,0.06));
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Override: Larger, bolder home hero typography for the homepage */
+.home-hero-title {
+  font-size: clamp(2.2rem, 6.5vw, 3.6rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.01em;
+}
+
+.hero-tagline {
+  font-size: clamp(1.125rem, 2.2vw, 1.6rem) !important;
+  font-weight: 700 !important;
+  max-width: 70ch;
+}
+
+.hero-microcopy {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+}
+
+ 
 .button {
   color: var(--dl-color-theme-neutral-dark);
   display: inline-block;
@@ -2462,6 +2494,7 @@
   height: auto;
   display: block;
   object-fit: cover;
+  object-position: center 20%;
   aspect-ratio: 4 / 3;
   border-radius: var(--border-radius-md);
 }

@@ -3,41 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — CultureQuest Kids</title>
+    <title>About — Kulture</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./quiz.css" />
     <style id="inline-quiz-nav">
-      /* Inline nav styles (keeps the app color scheme) */
-      .quiz-header{background:linear-gradient(90deg,#7c3aed,#f59e0b);color:#ffffff;padding:.75rem 1rem;box-shadow:0 8px 24px rgba(124,58,237,0.12)}
+      /* Simplified header styles without decorative shadows or gradients */
+      .quiz-header{background:var(--color-primary);color:#ffffff;padding:.75rem 1rem}
       .quiz-header-inner{max-width:72rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
       .quiz-logo{font-family:Baloo 2, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;font-weight:700;color:#fff;text-decoration:none;font-size:1.125rem}
       .quiz-nav-link{color:#fff;margin-left:1rem;text-decoration:none;font-weight:600}
       @media(max-width:640px){.quiz-header-inner{padding:0 .5rem}.quiz-nav-link{margin-left:.6rem}}
     </style>
     <style id="about-enhancements">
-      .about-hero-title{font-family:var(--font-family-heading);font-size:clamp(1.6rem,4vw,2.8rem);margin:0 0 var(--spacing-md);letter-spacing:var(--letter-spacing-friendly);color:var(--color-on-surface)}
-      .about-brand{display:inline-block;padding:.2rem .6rem;border-radius:14px;color:var(--color-on-primary);background:linear-gradient(90deg,var(--color-primary),var(--color-secondary));box-shadow:0 10px 30px rgba(124,58,237,0.14);}
+      /* Clean, flat styles matching home page layout */
+      main.thq-section-padding { padding: 2rem 1rem; }
+      .thq-section-max-width { width: 100% !important; max-width: none !important; padding: 0 !important; display:flex; justify-content:center; }
+      
+      .about-hero-title{font-family:var(--font-family-heading);font-size:clamp(2.2rem,6.5vw,3.6rem);font-weight:800;margin:0 0 var(--spacing-md);color:var(--color-on-surface);line-height:1.05}
+      .about-brand{display:inline-block;padding:.2rem .6rem;border-radius:10px;color:var(--color-on-primary);background:var(--color-primary);}
+      .about-subtitle{font-size:clamp(1.125rem,2.2vw,1.6rem);font-weight:700;color:var(--color-on-surface);margin:0 0 var(--spacing-lg);line-height:1.4;max-width:70ch}
 
-      .about-hero{display:grid;grid-template-columns:1fr 320px;gap:var(--spacing-lg);align-items:center;margin-bottom:var(--spacing-3xl)}
-      .about-hero-visual{height:220px;border-radius:var(--border-radius-xl);background:linear-gradient(135deg,var(--color-primary),var(--color-accent));display:flex;align-items:center;justify-content:center;color:var(--color-on-primary);font-size:3rem;box-shadow:var(--shadow-level-2)}
+      .about-hero{display:grid;grid-template-columns: minmax(0,1fr) minmax(0,1fr);gap:var(--spacing-3xl);align-items:center;margin-bottom:var(--spacing-3xl);max-width:1400px;width:100%;padding:0}
+      .about-hero { justify-items: stretch; }
+      .about-hero, .about-left, .about-hero-visual { box-sizing: border-box; }
+      .about-left{display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:0}
+      .about-hero-visual{height:auto;border-radius:var(--border-radius-lg);background:var(--color-surface);display:flex;align-items:center;justify-content:center;color:var(--color-on-surface);font-size:1.25rem;overflow:hidden}
+      .about-hero-visual img{width:100%;height:auto;display:block;object-fit:cover;border-radius:var(--border-radius-lg)}
 
-      .about-card{padding:var(--spacing-lg);border-radius:var(--border-radius-xl);background:linear-gradient(180deg,color-mix(in oklab,var(--color-surface) 92%,var(--color-primary) 8%),var(--color-surface));box-shadow:var(--shadow-level-2);border:4px solid transparent;border-image:linear-gradient(90deg,var(--color-primary),var(--color-accent),var(--color-secondary)) 1}
+      .about-card{padding:var(--spacing-lg);border-radius:var(--border-radius-lg);background:var(--color-surface);border:1px solid rgba(0,0,0,0.04);margin-top:var(--spacing-md)}
 
-      .about-cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:var(--spacing-md);text-decoration:none}
-      .btn-play{background:linear-gradient(90deg,var(--color-primary),var(--color-secondary));color:var(--color-on-primary);padding:.6rem 1rem;border-radius:999px;border:none;box-shadow:var(--shadow-level-3);font-weight:700}
+      .about-cta{display:flex;align-items:center;gap:.6rem;margin-top:var(--spacing-md);text-decoration:none}
+      .btn-play{background:var(--color-primary);color:var(--color-on-primary);padding:.6rem 1rem;border-radius:999px;border:none;font-weight:700;cursor:pointer;}
 
-      .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--spacing-md);margin-top:var(--spacing-lg)}
-      .feature-card{padding:var(--spacing-md);border-radius:12px;background:var(--color-surface);box-shadow:0 8px 20px rgba(11,16,32,0.06);display:flex;gap:.75rem;align-items:flex-start}
-      .feature-emoji{font-size:1.6rem;line-height:1;width:44px;height:44px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center}
+      .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--spacing-md);margin-top:var(--spacing-lg)}
+      .feature-card{padding:var(--spacing-md);border-radius:10px;background:transparent;display:flex;gap:.75rem;align-items:flex-start;max-width:540px}
+      .feature-emoji{display:none}
       .feature-title{font-weight:700;color:var(--color-on-surface)}
       .feature-desc{color:var(--color-on-surface-secondary);margin:0;font-size:0.95rem}
 
-      @media(max-width:800px){.about-hero{grid-template-columns:1fr;}.about-hero-visual{height:160px}}
+      @media(max-width:1024px){main.thq-section-padding{padding:1.5rem 1rem}.about-hero{grid-template-columns:1fr;gap:var(--spacing-2xl);padding:0 1rem}.about-left{align-items:flex-start;text-align:left}}
+      @media(max-width:768px){main.thq-section-padding{padding:1.25rem 0.75rem}.about-hero{gap:var(--spacing-lg);padding:0 0.75rem}.about-hero-title{font-size:clamp(1.8rem,5vw,2.4rem)}.about-subtitle{font-size:clamp(1rem,1.8vw,1.3rem)}.about-card{padding:var(--spacing-md)}.features-grid{gap:var(--spacing-sm)}}
+      @media(max-width:640px){main.thq-section-padding{padding:1rem 0.75rem}.about-hero{gap:var(--spacing-md);padding:0 0.5rem}.about-hero-title{font-size:clamp(1.6rem,4vw,2rem)}.about-subtitle{font-size:clamp(0.95rem,1.5vw,1.1rem);margin-bottom:var(--spacing-md)}.about-left{align-items:center;text-align:center}.about-card{padding:var(--spacing-md)}.about-cta{flex-direction:column;gap:.5rem;margin-top:var(--spacing-md)}.btn-play{width:100%;padding:.5rem 1rem;font-size:0.95rem}.features-grid{grid-template-columns:1fr;gap:var(--spacing-sm)}.feature-card{padding:var(--spacing-sm)}.feature-title{font-size:0.95rem}.feature-desc{font-size:0.85rem}.about-cta span{font-size:0.85rem}}
     </style>
 
     <header class="quiz-header">
       <div class="quiz-header-inner">
-        <a class="quiz-logo" href="index.html">CultureQuest Kids</a>
+        <a class="quiz-logo" href="index.html">Kulture</a>
         <nav aria-label="Main navigation">
           <a href="index.html" id="nav-home" class="quiz-nav-link">Home</a>
           <a href="quiz.html" id="nav-quiz" class="quiz-nav-link">Quiz</a>
@@ -51,33 +62,35 @@
     <main class="thq-section-padding" role="main">
       <div class="thq-section-max-width">
         <section class="about-hero">
-          <div>
-            <h1 class="about-hero-title">Discover, Play, and Celebrate — <span class="about-brand">CultureQuest Kids</span></h1>
-            <p class="section-subtitle">Bright photos. Friendly questions. Big smiles — learning that feels like play.</p>
+          <div class="about-left">
+            <h1 class="about-hero-title">Discover, play, and learn with <span class="about-brand">Kulture</span></h1>
+            <p class="about-subtitle">Bright photos, friendly questions, and simple rewards. The app makes short quiz rounds that are easy for kids to enjoy.</p>
 
             <div class="about-card">
-              <p class="section-content" style="font-weight:700; color:var(--color-on-surface);font-size:1.05rem;">Dive into short, joyful rounds built for curious kids — each challenge shows a bold photo and four big choices. Tap an answer, get friendly feedback, and keep discovering.</p>
+              <p class="section-content" style="font-weight:700; color:var(--color-on-surface);font-size:1.05rem;">Short rounds show one clear photo and four easy choices. Children tap an answer, get kind feedback, and move on to the next question. The experience is simple and playful so learners stay curious.</p>
 
-              <a class="about-cta" href="quiz.html"><button class="btn-play">▶ Play the Quiz</button><span style="color:var(--color-on-surface-secondary);font-weight:600">Start a quick 5-question round</span></a>
+              <a class="about-cta" href="quiz.html"><button class="btn-play">Play the Quiz</button><span style="color:var(--color-on-surface-secondary);font-weight:600">Start a 5-question round</span></a>
 
               <div class="features-grid">
-                <div class="feature-card"><div class="feature-emoji" style="background:linear-gradient(90deg,var(--color-primary),var(--color-accent));color:var(--color-on-primary)">🎯</div><div><div class="feature-title">Short rounds</div><p class="feature-desc">Quick sessions that keep kids focused and proud of progress.</p></div></div>
-                <div class="feature-card"><div class="feature-emoji" style="background:linear-gradient(90deg,var(--color-secondary),var(--color-accent));color:var(--color-on-primary)">📸</div><div><div class="feature-title">Bold photos</div><p class="feature-desc">Bright, friendly images chosen to spark questions and conversation.</p></div></div>
-                <div class="feature-card"><div class="feature-emoji" style="background:linear-gradient(90deg,var(--color-accent),var(--color-primary));color:var(--color-on-primary)">💬</div><div><div class="feature-title">Kind feedback</div><p class="feature-desc">Encouraging messages celebrate right answers and guide mistakes.</p></div></div>
-                <div class="feature-card"><div class="feature-emoji" style="background:linear-gradient(90deg,var(--color-primary),var(--color-secondary));color:var(--color-on-primary)">🖐️</div><div><div class="feature-title">Simple UI</div><p class="feature-desc">Large buttons and clear choices make playing easy for small hands.</p></div></div>
+                <div class="feature-card"><div><div class="feature-title">Short rounds</div><p class="feature-desc">Quick sessions that help children focus and feel successful.</p></div></div>
+                <div class="feature-card"><div><div class="feature-title">Clear photos</div><p class="feature-desc">High-contrast, friendly images chosen to invite conversation.</p></div></div>
+                <div class="feature-card"><div><div class="feature-title">Kind feedback</div><p class="feature-desc">Supportive messages celebrate correct answers and encourage retry on mistakes.</p></div></div>
+                <div class="feature-card"><div><div class="feature-title">Simple controls</div><p class="feature-desc">Large buttons and readable labels make it easy for little hands.</p></div></div>
               </div>
 
-              <p class="section-content" style="margin-top:var(--spacing-md);">Want to contribute photos or names? Open the `api/questions.json` file and drop your suggestions — this project is a playful learning sandbox.</p>
+              
             </div>
           </div>
 
-          <div class="about-hero-visual" aria-hidden="true">🌍</div>
+          <div class="about-hero-visual" aria-hidden="true">
+            <img src="https://images.pexels.com/photos/1535437/pexels-photo-1535437.jpeg" alt="Children learning and having fun">
+          </div>
         </section>
       </div>
     </main>
 
     <footer class="quiz-footer" role="contentinfo">
-      <div class="quiz-footer-inner">© 2025 CultureQuest Kids</div>
+      <div class="quiz-footer-inner">© 2025 Kulture</div>
     </footer>
 </body>
 </html>

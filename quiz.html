@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>CultureQuest Kids — Picture Quiz</title>
+    <title>Kulture — Picture Quiz</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./quiz.css" />
     <script type="module" src="./quiz.js" defer></script>
@@ -11,7 +11,7 @@
   <body>
     <header class="quiz-header">
       <div class="quiz-header-inner">
-        <a class="quiz-logo" href="index.html">CultureQuest Kids</a>
+        <a class="quiz-logo" href="index.html">Kulture</a>
         <nav aria-label="Main navigation">
           <a href="index.html" id="nav-home" class="quiz-nav-link">Home</a>
           <a href="quiz.html" aria-current="page" id="nav-quiz" class="quiz-nav-link">Quiz</a>
@@ -35,6 +35,7 @@
             <button id="level-3" class="level-btn btn btn-outline" data-level="3" style="display:none;">Level 3</button>
           </div>
           <h2 id="quiz-title" class="quiz-question">Who or what is this?</h2>
+          <p id="stage-action-question" class="stage-action-question" style="margin:0.25rem 0 1rem 0;">What is this?</p>
 
           <div class="quiz-choices" role="list" aria-label="Answer choices">
             <button id="choice1" class="choice-btn" role="listitem">Choice 1</button>
@@ -47,13 +48,16 @@
             <a id="btn-home" class="btn btn-outline" href="index.html">Back to Home</a>
           </div>
 
+            <!-- End-of-level action buttons (rendered dynamically) -->
+            <div id="stage-actions" class="stage-actions" role="region" aria-live="polite" aria-labelledby="stage-action-question" style="margin-top:1rem; display:none;"></div>
+
           <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>
         </div>
       </section>
     </main>
 
     <footer class="quiz-footer" role="contentinfo">
-      <div class="quiz-footer-inner">© 2025 CultureQuest Kids</div>
+      <div class="quiz-footer-inner">© 2025 Kulture</div>
     </footer>
   </body>
 </html>
