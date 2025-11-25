@@ -1590,12 +1590,14 @@
   gap: var(--section-gap);
   margin: 0 auto;
   display: grid;
-  padding: var(--spacing-4xl);
+  padding: var(--spacing-4xl) var(--spacing-2xl);
   z-index: 2;
   position: relative;
-  max-width: var(--content-max-width);
+  max-width: 100%;
+  width: 100%;
+  min-height: 85vh;
   align-items: center;
-  grid-template-columns: 1fr 42%;
+  grid-template-columns: 1fr 1fr;
 }
  
 .onboarding-container {

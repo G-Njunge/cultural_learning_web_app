@@ -1,5 +1,5 @@
-// api wrappers for object detection services
-import { API_NINJAS_KEY} from '/api/config.js';
+// api wrappers for object detection services (API Ninjas only)
+import { API_NINJAS_KEY } from '/api/config.js';
 
 export async function detectObjectNinjas(file) {
   // file: Blob or File
@@ -26,44 +26,12 @@ export async function detectObjectNinjas(file) {
   }
 
   const data = await response.json();
-  // API Ninjas returns array of detections; pick the top object's label
-  const top = data && data[0] ? (data[0].name || data[0].object || null) : null;
-  return top;
-}
-
-export async function detectObjectAPI4AI(imageUrl) {
-  // Example wrapper for API4AI - requires an API key and a known endpoint.
-  // This is a placeholder implementation; if you have an API4AI account,
-  // set API4AI_KEY in `/api/config.js` and update the endpoint details.
-  if (!API4AI_KEY || API4AI_KEY.startsWith('REPLACE')) {
-    console.warn('API4AI_KEY not configured. Returning null.');
-    return null;
-  }
-
-  // Example endpoint (may vary by provider/region)
-  const endpoint = 'https://api.api4ai.cloud/vision/v1/object-detection';
-
-  const res = await fetch(endpoint, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Api-Key ${API4AI_KEY}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ url: imageUrl })
-  });
-
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error('API4AI detection error: ' + res.status + ' ' + text);
-  }
-
-  const payload = await res.json();
-  // Extract a label from the response; shape varies by provider
-  // This attempts a couple of common fields; adapt if your provider differs.
-  try {
-    const label = payload?.results?.[0]?.entities?.[0]?.type || payload?.results?.[0]?.entities?.[0]?.classes?.[0]?.name || null;
-    return label;
-  } catch (e) {
-    return null;
-  }
+  // API Ninjas returns array of detections; pick the top object's label field first
+  // sample response uses `label`, so check that first, then fall back to other keys
+  const top = data && data[0]
+    ? (data[0].label || data[0].name || data[0].object || null)
+    : null;
+  // Return both a normalized label and the raw response so the frontend
+  // can show debugging information.
+  return { label: top, raw: data };
 }

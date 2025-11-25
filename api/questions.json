@@ -1,9 +1,15 @@
 [
-  {"id": "q1", "image": "https://images.pexels.com/photos/750539/pexels-photo-750539.jpeg", "label": "zebra"},
-  {"id": "q2", "image": "https://images.pexels.com/photos/32265190/pexels-photo-32265190.jpeg", "label": "baobab tree"},
-  {"id": "q3", "image": "./images/chapati.jpg", "label": "chapati"},
-  {"id": "q4", "image": "./images/hut.jpg", "label": "hut"},
-  {"id": "q5", "image": "./images/ugali.jpg", "label": "ugali"}
+  {"id": "q1", "image": "./images/banana.jpg"},
+  {"id": "q2", "image": "https://images.pexels.com/photos/32265190/pexels-photo-32265190.jpeg","label":"baobab"},
+  {"id": "q3", "image": "./images/chapati.jpg", "label":"chapati"},
+  {"id": "q4", "image": "./images/hut.jpg", "label":"hut"},
+  {"id": "q5", "image": "./images/chicken.jpg","label":"chicken"},
+  {"id": "q6", "image": "./images/girrafe.jpg","label":"giraffe"},
+  {"id": "q7", "image": "./images/maasai-shuka.jpg","label":"maasai shuka"},
+  {"id": "q8", "image": "./images/mukimo.jpg","label":"mukimu"},
+  {"id": "q9", "image": "./images/ostrich.jpg","label":"ostrich"},
+  {"id": "q10", "image": "./images/wilderbeest.jpg","label":"wilderbeest"},
+  {"id": "q11", "image": "./images/zebra.jpg"}
 
 ]
 

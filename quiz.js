@@ -1,6 +1,8 @@
 // Quiz logic: load local `api/questions.json`, pick 5 questions per round,
 // display a large image and four answer buttons, show feedback and handle Next/Try Again.
 
+import { detectObjectNinjas } from '/api/api.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   const choiceEls = [
     document.getElementById('choice1'),
@@ -9,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('choice4')
   ].filter(Boolean);
   const nextBtn = document.getElementById('btn-next');
-  const tryAgainBtn = document.getElementById('btn-try-again');
   const feedbackEl = document.getElementById('quiz-feedback');
   const imgEl = document.getElementById('quiz-img');
   const titleEl = document.getElementById('quiz-title');
@@ -51,20 +52,50 @@ document.addEventListener('DOMContentLoaded', () => {
       imgEl.src = './images/placeholder-quiz.jpg';
     };
 
-    // Prepare choices: correct + three distractors
-    const labels = questions.map(s => s.label).filter(Boolean);
-    const distractPool = labels.filter(l => l !== q.label);
-    const distractors = shuffle(distractPool).slice(0, 3);
-    const choices = shuffle([q.label, ...distractors]);
+    // If question lacks a label, call detection API to get it
+    (async () => {
+      let correct = q.label || null;
+      if (!correct) {
+        try {
+          // fetch image as blob
+          const resp = await fetch(src);
+          const blob = await resp.blob();
+          const detected = await detectObjectNinjas(blob);
+          const rawLabel = detected && typeof detected === 'object' ? detected.label || detected.name || detected.object : detected;
+          if (rawLabel) {
+            // normalize
+            correct = String(rawLabel).trim().split(/\s+/).map(w => w[0]?.toUpperCase()+w.slice(1)).join(' ');
+          }
+        } catch (e) {
+          console.warn('Detection failed:', e);
+        }
+      }
 
-    // Fill buttons
-    choiceEls.forEach((btn, i) => {
-      btn.disabled = false;
-      btn.classList.remove('correct', 'wrong');
-      btn.textContent = choices[i] || '';
-      btn.setAttribute('aria-pressed', 'false');
-      btn.onclick = () => onChoiceClick(btn, q.label);
-    });
+      if (!correct) {
+        // fallback to another question's label or placeholder
+        const otherLabels = questions.map(s => s.label).filter(Boolean);
+        correct = otherLabels.length ? otherLabels[0] : 'Unknown';
+      }
+
+      q.label = correct;
+
+      // Prepare choices: correct + three distractors
+      const labels = questions.map(s => s.label).filter(Boolean);
+      // Use labels if available, otherwise use a small static pool
+      const pool = labels.length >= 4 ? labels : ['Elephant','Baobab Tree','Drum','Kente Cloth','Mask','Giraffe','Lion','Zebra'];
+      const distractPool = pool.filter(l => l !== q.label);
+      const distractors = shuffle(distractPool).slice(0, 3);
+      const choices = shuffle([q.label, ...distractors]);
+
+      // Fill buttons
+      choiceEls.forEach((btn, i) => {
+        btn.disabled = false;
+        btn.classList.remove('correct', 'wrong');
+        btn.textContent = choices[i] || '';
+        btn.setAttribute('aria-pressed', 'false');
+        btn.onclick = () => onChoiceClick(btn, q.label);
+      });
+    })();
 
     // Reset feedback and controls
     feedbackEl.textContent = '';
@@ -76,24 +107,28 @@ document.addEventListener('DOMContentLoaded', () => {
   function onChoiceClick(btn, correctLabel) {
     // mark answer
     const chosen = btn.textContent;
-    // disable all buttons so child can't spam
-    choiceEls.forEach(b => b.disabled = true);
 
     if (chosen === correctLabel) {
+      // Correct! Disable buttons and auto-advance
+      choiceEls.forEach(b => b.disabled = true);
       btn.classList.add('correct');
       feedbackEl.textContent = 'Correct! 🎉';
       // show a quick confetti celebration
       showConfetti();
+      // Auto-advance after delay
+      answered = true;
+      setTimeout(() => {
+        nextQuestion();
+      }, 1500);
     } else {
+      // Wrong: show feedback, highlight correct, allow retry by clicking another choice
       btn.classList.add('wrong');
       feedbackEl.textContent = 'Try Again!';
-      // highlight correct
+      // highlight correct answer
       const correctBtn = choiceEls.find(b => b.textContent === correctLabel);
       if (correctBtn) correctBtn.classList.add('correct');
+      // Don't disable buttons—let them pick again
     }
-
-    answered = true;
-    if (nextBtn) nextBtn.disabled = false;
   }
 
   function nextQuestion() {
@@ -104,20 +139,41 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       // finished
       feedbackEl.textContent = 'Quiz complete — well done! 🎉';
-      imgEl.src = './images/placeholder-quiz.jpg';
-      choiceEls.forEach(b => { b.textContent = ''; b.disabled = true; b.classList.remove('correct','wrong'); });
-      if (nextBtn) nextBtn.disabled = true;
       if (titleEl) titleEl.textContent = 'All done!';
+      // Hide image and choices
+      const quizImage = document.getElementById('quiz-image');
+      if (quizImage) quizImage.style.display = 'none';
+      const quizChoices = document.querySelector('.quiz-choices');
+      if (quizChoices) quizChoices.style.display = 'none';
+      // Hide Next button, show Play Again and Back to Home
+      if (nextBtn) nextBtn.style.display = 'none';
+      // Change Back to Home to Play Again for convenience
+      const homeBtn = document.getElementById('btn-home');
+      if (homeBtn) {
+        homeBtn.textContent = 'Play Again';
+        homeBtn.href = '#';
+        homeBtn.onclick = (e) => { e.preventDefault(); resetQuizUI(); loadQuestions(5); };
+      }
+      // Show confetti
+      showConfetti();
+    }
+
+  // Helper to reset UI for new quiz
+  function resetQuizUI() {
+    const quizImage = document.getElementById('quiz-image');
+    if (quizImage) quizImage.style.display = '';
+    const quizChoices = document.querySelector('.quiz-choices');
+    if (quizChoices) quizChoices.style.display = '';
+    if (nextBtn) nextBtn.style.display = '';
+    const homeBtn = document.getElementById('btn-home');
+    if (homeBtn) {
+      homeBtn.textContent = 'Back to Home';
+      homeBtn.href = 'index.html';
+      homeBtn.onclick = null;
     }
   }
-
-  function tryAgain() {
-    // allow re-attempt on current question
-    answered = false;
-    feedbackEl.textContent = '';
-    choiceEls.forEach(b => { b.disabled = false; b.classList.remove('correct','wrong'); b.setAttribute('aria-pressed','false'); });
-    if (nextBtn) nextBtn.disabled = true;
   }
+
 
   async function loadQuestions(count = 5) {
     try {
@@ -141,7 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Wire controls
   if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); nextQuestion(); });
-  if (tryAgainBtn) tryAgainBtn.addEventListener('click', (e) => { e.preventDefault(); tryAgain(); });
 
   // Start by loading 5 questions
   loadQuestions(5);
@@ -158,23 +213,23 @@ document.addEventListener('DOMContentLoaded', () => {
       container.appendChild(confettiWrap);
     }
 
-    // create a bunch of pieces
+    // create a bunch of bigger pieces with more celebratory effect
     const colors = ['var(--color-primary)','var(--color-secondary)','var(--color-accent)','#FFD166'];
     const pieces = [];
-    for (let i=0;i<18;i++) {
+    for (let i=0;i<40;i++) {
       const el = document.createElement('span');
       el.className = 'confetti-piece';
       const left = Math.random() * 100;
-      const size = 8 + Math.random() * 12;
+      const size = 16 + Math.random() * 28;  // bigger: 16-44px instead of 8-20px
       el.style.left = left + '%';
-      el.style.top = (-10 - Math.random()*10) + '%';
+      el.style.top = (-20 - Math.random()*20) + '%';
       el.style.width = size + 'px';
       el.style.height = Math.round(size * 1.4) + 'px';
       el.style.background = colors[Math.floor(Math.random()*colors.length)];
-      el.style.transform = `rotate(${Math.random()*360}deg)`;
-      const delay = (Math.random()*0.2) + 's';
-      const dur = 1.2 + Math.random()*0.8;
-      el.style.animation = `confetti-fall ${dur}s ${delay} cubic-bezier(.2,.9,.3,1)`;
+      el.style.transform = `rotate(${Math.random()*360}deg) scale(0)`;
+      const delay = (Math.random()*0.3) + 's';
+      const dur = 2.5 + Math.random()*1.5;  // longer fall time
+      el.style.animation = `confetti-burst ${dur}s ${delay} cubic-bezier(.15,.82,.4,1)`;
       confettiWrap.appendChild(el);
       pieces.push(el);
     }
@@ -182,6 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // remove pieces after animation
     setTimeout(() => {
       pieces.forEach(p => p.remove());
-    }, 2500);
+    }, 4500);
   }
 });
