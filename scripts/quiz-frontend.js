@@ -1,14 +1,6 @@
-// quiz-frontend.js removed — kept as an empty harmless stub to avoid
-// duplicate/declaration/parse errors produced by earlier iterations.
-
 // The active quiz page `quiz.html` loads `quiz.js` (the canonical frontend).
 // If you want to enable an alternate implementation, add it as
 // `scripts/quiz-frontend-clean.js` and import it explicitly from `quiz.html`.
-
-// quiz-frontend.js
-// Clean implementation: load questions from `/api/questions.json`,
-// call API Ninjas to detect label for each image, present 4 choices,
-// and show a debug panel with the raw API response.
 
 import { detectObjectNinjas } from '/api/api.js';
 

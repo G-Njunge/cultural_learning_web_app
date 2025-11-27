@@ -1,15 +1,21 @@
+/* Home page specific styles for navigation, footer, and hero section components */
+
+/* Navigation component wrapper - uses CSS 'contents' to flatten the DOM hierarchy */
 .navigation-wrapper {
   display: contents;
 }
  
+/* Navigation structural container - flattened into parent layout */
 .navigation-container1 {
   display: contents;
 }
  
+/* Hidden navigation variant (not used) */
 .navigation-container2 {
   display: none;
 }
  
+/* Active navigation container - rendered in the layout */
 .navigation-container3 {
   display: contents;
 }
@@ -55,26 +61,32 @@
   display: contents;
 }
 
+/* Footer component wrapper - uses CSS 'contents' to flatten the DOM hierarchy */
 .footer-wrapper {
   display: contents;
 }
  
+/* Footer structural container - flattened into parent layout */
 .footer-container1 {
   display: contents;
 }
  
+/* Hidden footer variant (not used) */
 .footer-container2 {
   display: none;
 }
  
+/* Active footer container - rendered in the layout */
 .footer-container3 {
   display: contents;
 }
  
+/* Copyright text styling with proper line spacing */
 .footer-footer-copyright-text1 {
   line-height: 1.5;
 }
  
+/* Heart icon with subtle heartbeat animation to draw attention */
 .footer-footer-heart-icon {
   color: var(--color-accent);
   width: 18px;
@@ -110,25 +122,31 @@
   }
 }
 
+/* Home page main container - full height with block layout */
 .home-container10 {
   width: 100%;
   display: block;
   min-height: 100vh;
 }
  
+/* Hidden home page variant (not used) */
 .home-container11 {
   display: none;
 }
  
+/* Active home page container - flattened into parent */
 .home-container12 {
   display: contents;
 }
  
+/* Button icon display - inline flex for alignment with text */
 .home-btn-icon {
   display: inline-flex;
   align-items: center;
 }
  
+/* Progress bar fill widths (visual indicators for level progress) */
+/* Level 1: 60% complete, Level 2: 30% complete, Level 3: 80% complete */
 .home-progress-fill1 {
   width: 60%;
 }
@@ -157,13 +175,15 @@
   display: contents;
 }
  
+/* Floating action button (FAB) - fixed position bottom-right corner */
+/* Uses frosted glass effect with blur for modern aesthetic */
 .home-container25 {
   right: 50px;
   border: 1px solid #ffffff5c;
   bottom: 30px;
   display: flex;
   z-index: 22;
-  position: fixed;
+  position: fixed; /* Stays visible while scrolling */
   box-shadow: 5px 5px 10px 0px rgba(31, 31, 31, 0.4);
   min-height: auto;
   align-items: center;
@@ -172,7 +192,7 @@
   border-radius: 8px;
   padding-right: 12px;
   padding-bottom: 8px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px); /* Frosted glass effect */
   background-color: rgba(41, 41, 41, 0.41);
 }
  
@@ -189,16 +209,17 @@
   line-height: 24px;
 }
 
-/* Footer styling for home page */
+/* Footer styling with gradient background matching header */
 .quiz-footer {
   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
   color: var(--color-on-primary);
   padding: 1rem;
   text-align: center;
   box-shadow: var(--shadow-level-1);
-  margin-top: auto;
+  margin-top: auto; /* Pushes footer to bottom when content is short */
 }
 
+/* Footer content container with max-width constraint */
 .quiz-footer-inner {
   max-width: var(--content-max-width);
   margin: 0 auto;
@@ -206,6 +227,7 @@
   font-weight: var(--font-weight-medium);
 }
 
+/* Sticky footer: flex column layout ensures footer stays at bottom */
 body {
   display: flex;
   flex-direction: column;

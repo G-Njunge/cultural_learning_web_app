@@ -1,7 +1,9 @@
-// Clean, self-contained quiz frontend
+// Kulture Quiz Frontend
+// Main quiz logic: loads questions, renders UI, handles user interactions, manages level progression
 import { detectObjectNinjas } from '/api/api.js';
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Cache DOM elements for efficient access throughout the app
   const choiceEls = [
     document.getElementById('choice1'),
     document.getElementById('choice2'),
@@ -18,10 +20,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const stageActions = document.getElementById('stage-actions');
   const promptEl = document.getElementById('stage-action-question');
 
+  // Quiz state
   let questions = [];
   let index = 0;
   let currentStage = 1;
 
+  // Fisher-Yates shuffle algorithm for randomizing choices
   function shuffle(arr) {
     const a = arr.slice();
     for (let i = a.length - 1; i > 0; i--) {
@@ -31,21 +35,24 @@ document.addEventListener('DOMContentLoaded', function () {
     return a;
   }
 
+  // Extract numeric ID from question identifiers like "q5" to return 5
   function idToNum(id) {
     if (!id) return NaN;
     const m = String(id).match(/q(\d+)/i);
     return m ? Number(m[1]) : NaN;
   }
 
+  // Provide fallback image if image path is missing or broken
   function safeImageSrc(src) {
     if (!src) return './images/pexels-jairo-david-arboleda-621072-1425883.jpg';
     return src;
   }
 
+  // Show only the active level button and hide others to reduce confusion
   function setActiveLevelButton(level) {
     [level1Btn, level2Btn, level3Btn].forEach(function (b) {
       if (!b) return;
-      // Show only the current level button
+      // Display only the current level button
       if (Number(b.dataset.level) === level) {
         b.style.display = '';
         b.classList.add('active');
@@ -58,11 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Load questions for a specific level (1, 2, or 3)
   async function loadQuestions(count, stage) {
     count = count || 5; stage = stage || 1;
     try {
-      // hide any end-of-level actions when starting a new load
+      // Hide level completion options when loading new questions
       if (stageActions) stageActions.style.display = 'none';
+      // Try multiple paths to find the questions dataset
       const paths = ['/api/questions.json', './api/questions.json', 'api/questions.json'];
       let data = null;
       for (let p of paths) {
@@ -72,11 +81,12 @@ document.addEventListener('DOMContentLoaded', function () {
           const json = await res.json();
           if (Array.isArray(json) && json.length) { data = json; break; }
         } catch (e) {
-          // try next
+          // Continue to next path if fetch fails
         }
       }
       if (!Array.isArray(data) || !data.length) throw new Error('No questions found');
 
+      // Filter questions by level range (1-5 for level 1, 6-10 for level 2, etc)
       const ranges = {1: [1,5], 2: [6,10], 3: [11,15]};
       const r = ranges[stage] || ranges[1];
       const pool = data.filter(d => {

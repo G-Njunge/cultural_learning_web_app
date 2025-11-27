@@ -46,6 +46,7 @@
       @media(max-width:640px){main.thq-section-padding{padding:1rem 0.75rem}.about-hero{gap:var(--spacing-md);padding:0 0.5rem}.about-hero-title{font-size:clamp(1.6rem,4vw,2rem)}.about-subtitle{font-size:clamp(0.95rem,1.5vw,1.1rem);margin-bottom:var(--spacing-md)}.about-left{align-items:center;text-align:center}.about-card{padding:var(--spacing-md)}.about-cta{flex-direction:column;gap:.5rem;margin-top:var(--spacing-md)}.btn-play{width:100%;padding:.5rem 1rem;font-size:0.95rem}.features-grid{grid-template-columns:1fr;gap:var(--spacing-sm)}.feature-card{padding:var(--spacing-sm)}.feature-title{font-size:0.95rem}.feature-desc{font-size:0.85rem}.about-cta span{font-size:0.85rem}}
     </style>
 
+    <!-- Navigation header with app branding and links to other pages -->
     <header class="quiz-header">
       <div class="quiz-header-inner">
         <a class="quiz-logo" href="index.html">Kulture</a>
@@ -59,18 +60,25 @@
 
 </head>
 <body>
+    <!-- Main content area centered with responsive padding -->
     <main class="thq-section-padding" role="main">
       <div class="thq-section-max-width">
+        <!-- Two-column hero section with title/description on left and image on right -->
+        <!-- Responsive: 2 columns on desktop, 1 column on mobile -->
         <section class="about-hero">
+          <!-- Left column: headline, subtitle, and feature cards -->
           <div class="about-left">
             <h1 class="about-hero-title">Discover, play, and learn with <span class="about-brand">Kulture</span></h1>
             <p class="about-subtitle">Bright photos, friendly questions, and simple rewards. The app makes short quiz rounds that are easy for kids to enjoy.</p>
 
+            <!-- Card explaining how the app works and call-to-action button -->
             <div class="about-card">
               <p class="section-content" style="font-weight:700; color:var(--color-on-surface);font-size:1.05rem;">Short rounds show one clear photo and four easy choices. Children tap an answer, get kind feedback, and move on to the next question. The experience is simple and playful so learners stay curious.</p>
 
+              <!-- Button to navigate to quiz page with descriptive text -->
               <a class="about-cta" href="quiz.html"><button class="btn-play">Play the Quiz</button><span style="color:var(--color-on-surface-secondary);font-weight:600">Start a 5-question round</span></a>
 
+              <!-- Four-column responsive grid showing key app features -->
               <div class="features-grid">
                 <div class="feature-card"><div><div class="feature-title">Short rounds</div><p class="feature-desc">Quick sessions that help children focus and feel successful.</p></div></div>
                 <div class="feature-card"><div><div class="feature-title">Clear photos</div><p class="feature-desc">High-contrast, friendly images chosen to invite conversation.</p></div></div>
@@ -82,6 +90,7 @@
             </div>
           </div>
 
+          <!-- Right column: photo of children learning (decorative, hidden from screen readers) -->
           <div class="about-hero-visual" aria-hidden="true">
             <img src="https://images.pexels.com/photos/1535437/pexels-photo-1535437.jpeg" alt="Children learning and having fun">
           </div>
@@ -89,6 +98,7 @@
       </div>
     </main>
 
+    <!-- Footer with copyright info -->
     <footer class="quiz-footer" role="contentinfo">
       <div class="quiz-footer-inner">© 2025 Kulture</div>
     </footer>

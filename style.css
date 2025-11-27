@@ -1,4 +1,13 @@
+/*
+  Global CSS Stylesheet
+  Defines all design tokens, component styles, and layout utilities
+  CSS Variables: color (primary, secondary, accent), spacing (xs-4xl), typography, shadows, animation
+  Components: buttons, inputs, hero sections, responsive grid layouts
+  Mobile-First Approach: Base styles for mobile, media queries for larger screens
+*/
+
 :root {
+  /* Spacing scale in rems (1rem = 16px) for consistent spacing throughout */
   --spacing-lg: 1rem;
   --spacing-md: 0.75rem;
   --spacing-sm: 0.5rem;
@@ -100,12 +109,14 @@
 html, body {
   height: 100%;
 }
+
+/* Soft gradient background with fixed attachment for visual depth */
 body {
   background-color: rgba(173, 216, 230, 0.06); /* lightblue at 6% opacity */
   background-image: linear-gradient(to bottom, rgba(173,216,230,0.02), rgba(173,216,230,0.06));
-  background-attachment: fixed;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-attachment: fixed; /* Stays in place while scrolling */
+  -webkit-font-smoothing: antialiased; /* Improve font rendering on macOS */
+  -moz-osx-font-smoothing: grayscale; /* Improve font rendering on Firefox */
 }
 
 /* Override: Larger, bolder home hero typography for the homepage */
@@ -116,18 +127,21 @@ body {
   letter-spacing: -0.01em;
 }
 
+/* Hero tagline styling - large and bold with line-height for readability */
 .hero-tagline {
   font-size: clamp(1.125rem, 2.2vw, 1.6rem) !important;
   font-weight: 700 !important;
   max-width: 70ch;
 }
 
+/* Small descriptive text below call-to-action */
 .hero-microcopy {
   font-size: 1.05rem !important;
   font-weight: 700 !important;
 }
 
  
+/* Generic button component - basic unstyled button for reference */
 .button {
   color: var(--dl-color-theme-neutral-dark);
   display: inline-block;
@@ -138,6 +152,7 @@ body {
   background-color: var(--dl-color-theme-neutral-light);
 }
  
+/* Generic text input component - basic unstyled input for reference */
 .input {
   color: var(--dl-color-theme-neutral-dark);
   cursor: auto;
@@ -148,7 +163,7 @@ body {
   background-color: var(--dl-color-theme-neutral-light);
 }
  
-.textarea {
+/* Generic textarea component - basic unstyled textarea for reference */
   color: var(--dl-color-theme-neutral-dark);
   cursor: auto;
   padding: 0.5rem;

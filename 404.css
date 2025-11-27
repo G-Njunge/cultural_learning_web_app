@@ -1,3 +1,6 @@
+/* 404 error page styles */
+
+/* Main container: full viewport height centered layout */
 .not-found-container1 {
   width: 100%;
   display: flex;
@@ -8,6 +11,7 @@
   justify-content: center;
 }
  
+/* Container for the large 404 error code */
 .not-found-container2 {
   display: flex;
   position: relative;
@@ -16,15 +20,17 @@
   justify-content: center;
 }
  
+/* Large 404 error code text with tight spacing */
 .not-found-text2 {
   color: rgb(38, 38, 38);
   font-size: 252px;
   margin-top: -20px;
   font-weight: 900;
   margin-bottom: -20px;
-  letter-spacing: -20px;
+  letter-spacing: -20px; /* Tightly spaced for visual impact */
 }
  
+/* Container for error message text */
 .not-found-container3 {
   width: 421px;
   display: flex;
@@ -33,6 +39,7 @@
   justify-content: center;
 }
  
+/* Error explanation message */
 .not-found-text3 {
   text-align: center;
   font-weight: 400;
