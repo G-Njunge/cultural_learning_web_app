@@ -1,5 +1,4 @@
 # Kulture
-
 A fun and interactive educational web app designed to help children discover and celebrate their African roots through picture-naming quizzes.
 The app is deployed. 
 Live demo: https://kulture.njunge.tech/
