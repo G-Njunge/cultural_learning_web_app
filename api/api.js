@@ -24,6 +24,24 @@ export async function detectObjectNinjas(file) {
     API_NINJAS_KEY = null;
   }
 
+  // If dynamic import failed, try fetching the config file as a fallback.
+  // Some hosts serve JS files with an incorrect MIME type which makes import()
+  // fail; fetching and parsing the file lets us extract the key in those cases.
+  if (!API_NINJAS_KEY) {
+    try {
+      const res = await fetch('./config.js');
+      if (res.ok) {
+        const text = await res.text();
+        // Look for a simple export like: export const API_NINJAS_KEY = '...';
+        const m = text.match(/API_NINJAS_KEY\s*=\s*['"]([^'\"]+)['"]/);
+        if (m && m[1]) API_NINJAS_KEY = m[1];
+      }
+    } catch (e) {
+      // ignore fetch/parsing errors, we'll handle missing key below
+      console.debug('Fallback fetch for api/config.js failed:', e && e.message);
+    }
+  }
+
   // If no valid key, just return null so the caller knows detection was not run
   if (!API_NINJAS_KEY || API_NINJAS_KEY.startsWith('REPLACE')) {
     return null;
