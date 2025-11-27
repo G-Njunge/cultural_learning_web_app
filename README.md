@@ -63,39 +63,13 @@ Each question includes:
 - `label`: Correct answer label (automatically detected if missing)
 - `distractors`: Alternative answer options
 
-## Getting Started
+## Live Demo
 
-### Installation
+The app is deployed. Add your live URL below so readers can open the running site directly.
 
-1. Clone the repository:
-```bash
-git clone https://github.com/G-Njunge/cultural_learning_web_app.git
-cd cultural_learning_web_app
-```
+Live demo: [https://your-deployed-site.example](https://your-deployed-site.example)
 
-2. Set up your API key:
-   - Create `api/config.js` with your API Ninjas key:
-   ```javascript
-   export const API_KEY = 'your-api-ninjas-key-here';
-   ```
-   - Get a free API key at https://api-ninjas.com
-
-3. Serve the app locally:
-```bash
-# Using Python 3
-python -m http.server 8000
-
-# Using Python 2
-python -m SimpleHTTPServer 8000
-
-# Using Node.js
-npx http-server
-```
-
-4. Open your browser and navigate to:
-```
-http://localhost:8000
-```
+Replace the URL above with your production link.
 
 ## Usage
 
@@ -150,11 +124,28 @@ This happens silently in the background without blocking the quiz UI.
 
 ### Environment Variables
 
-Create `api/config.js`:
+Create `api/config.js` from the example and add your key locally:
 
-```javascript
-export const API_KEY = 'your-api-ninjas-key-here';
+```bash
+cp api/config.js.example api/config.js
 ```
+
+Then edit `api/config.js` and set `API_NINJAS_KEY` to your key.
+
+If you accidentally committed a real key, follow these steps to mitigate exposure:
+
+1. Rotate the API key at the provider (issue a new key and revoke the old one).
+2. Remove the file from the current commit history and stop tracking it:
+
+```bash
+git rm --cached api/config.js
+git commit -m "Remove local API key from tracking"
+git push
+```
+
+3. If the key is sensitive and pushed to a public repository, consider rewriting
+    history to purge it (tools such as `git filter-repo` or the BFG Repo-Cleaner),
+    or contact the hosting provider for guidance.
 
 ### Customizing Branding
 
@@ -244,6 +235,7 @@ Initial release featuring:
 
 ## Acknowledgments
 
-- API Ninjas for object detection capability
-- Pexels for stock images
-- The open source community for inspiration and tools
+- **API Ninjas** (https://api-ninjas.com) – for providing the free object detection API that powers automatic image labeling in the quiz.
+- **Google Pictures** – for culturally relevant images sourced to support the African roots theme.
+- **Pexels** (https://www.pexels.com) – for high-quality, free stock photos used throughout the app.
+- The open source community for inspiration and tools that made this project possible.

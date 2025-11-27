@@ -1,0 +1,5 @@
+// api/config.js.example
+
+export const API_NINJAS_KEY = 'REPLACE_WITH_YOUR_API_KEY';
+
+/
