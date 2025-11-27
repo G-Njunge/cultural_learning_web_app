@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateProgress(){ if (titleEl && questions.length) titleEl.textContent = 'Question ' + (index+1) + ' of ' + questions.length; }
 
   function onChoiceClick(btn, correctLabel){ const chosen = btn.textContent;
-    if (chosen === correctLabel){ choiceEls.forEach(b=>b.disabled=true); btn.classList.add('correct'); feedbackEl.textContent='Correct! 🎉'; showConfetti(); setTimeout(nextQuestion,1500); }
+    if (chosen === correctLabel){ choiceEls.forEach(b=>b.disabled=true); btn.classList.add('correct'); feedbackEl.textContent='Correct!'; showConfetti(); setTimeout(nextQuestion,1500); }
     else { btn.classList.add('wrong'); feedbackEl.textContent='Try Again!'; const correctBtn = choiceEls.find(b=>b.textContent===correctLabel); if (correctBtn) correctBtn.classList.add('correct'); }
   }
 
@@ -138,7 +138,9 @@ document.addEventListener('DOMContentLoaded', function () {
       index++; renderQuestion(); 
     } else { 
       // Level complete - show confetti and completion options
-      feedbackEl.textContent='Level complete — well done! 🎉'; 
+      feedbackEl.textContent='Level complete — well done!'; 
+      // hide the prompt immediately when the level finishes
+      if (promptEl) promptEl.style.display = 'none';
       imgEl.style.display='none'; 
       document.querySelector('.quiz-choices').style.display='none'; 
       showConfetti(); 
@@ -154,13 +156,16 @@ document.addEventListener('DOMContentLoaded', function () {
     stageActions.innerHTML = '';
     stageActions.style.display = '';
 
+    // Hide the static back button when showing stage actions
+    if (homeBtn) homeBtn.style.display = 'none';
+
+    // Hide the persistent prompt when showing completion options
+    if (promptEl) promptEl.style.display = 'none';
+
     // hide the image and choices area while options are shown
     imgEl.style.display = 'none';
     const quizChoices = document.querySelector('.quiz-choices');
     if (quizChoices) quizChoices.style.display = 'none';
-
-    // Ensure persistent prompt is visible above the actions
-    if (promptEl) { promptEl.textContent = 'What is this?'; promptEl.style.display = ''; }
 
     // small helper to set ARIA and keyboard handlers (Enter/Space)
     function makeAccessible(btn, ariaLabel) {
@@ -198,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
       };
 
       const backBtn = document.createElement('button');
-      backBtn.className = 'btn btn-outline';
+      backBtn.className = 'btn btn-primary';
       backBtn.textContent = 'Back to Home';
       makeAccessible(backBtn, 'Go back to the home page');
       backBtn.onclick = function() { window.location.href = 'index.html'; };
@@ -207,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
       stageActions.appendChild(proceedBtn);
       stageActions.appendChild(backBtn);
     } else {
-      feedbackEl.textContent = 'All levels complete! You finished the quiz! 🎊';
+      feedbackEl.textContent = 'All levels complete! You finished the quiz!';
 
       const playAgainBtn = document.createElement('button');
       playAgainBtn.className = 'btn btn-primary';
@@ -220,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
       };
 
       const backBtn = document.createElement('button');
-      backBtn.className = 'btn btn-outline';
+      backBtn.className = 'btn btn-primary';
       backBtn.textContent = 'Back to Home';
       makeAccessible(backBtn, 'Go back to the home page');
       backBtn.onclick = function() { window.location.href = 'index.html'; };
