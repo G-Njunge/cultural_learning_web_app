@@ -1,6 +1,6 @@
 // Kulture Quiz Frontend
 // Main quiz logic: loads questions, renders UI, handles user interactions, manages level progression
-import { detectObjectNinjas } from '/api/api.js';
+import { detectObjectNinjas } from './api/api.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   // Cache DOM elements for efficient access throughout the app
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Hide level completion options when loading new questions
       if (stageActions) stageActions.style.display = 'none';
       // Try multiple paths to find the questions dataset
-      const paths = ['/api/questions.json', './api/questions.json', 'api/questions.json'];
+      const paths = ['./api/questions.json', './api/questions.json', './api/questions.json'];
       let data = null;
       for (let p of paths) {
         try {

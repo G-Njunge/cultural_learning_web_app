@@ -1,6 +1,6 @@
 // API Ninjas object detection wrapper
 // Sends images to API Ninjas and extracts detected object labels for quiz answers
-import { API_NINJAS_KEY } from '/api/config.js';
+import { API_NINJAS_KEY } from './config.js';
 
 export async function detectObjectNinjas(file) {
   // file: Blob or File object containing image data
