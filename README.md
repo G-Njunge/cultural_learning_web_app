@@ -1,8 +1,11 @@
 # Kulture
 A fun and interactive educational web app designed to help children discover and celebrate their African roots through picture-naming quizzes.
+
 The app is deployed. 
 Live demo: https://kulture.njunge.tech/
-YouTube link for the live demo/n
+
+YouTube link for the live demo
+https://youtu.be/ExJ8zQ0PcLA
 
 wireframes folder
 https://drive.google.com/drive/folders/18UfDBdYFU0dOw8oTGSij7QDiRb0nlwC-?usp=drive_link
